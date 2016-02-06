@@ -1,0 +1,51 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <!-- <ion-item menu-close ng-click="login()">
+          Login
+        </ion-item>  -->
+        <ion-item menu-close href="#/app/home" ng-controller="tambahCtrl" ng-click="Portrait()">
+          <i class="item-icon icon-left ion-ios-home padding-right"></i>
+          Home
+        </ion-item>        
+        <ion-item menu-close href="#/app/pemasukan" ng-controller="pemasukanCtrl" ng-click="Landscape()">
+        <i class="item-icon icon-left ion-social-usd padding-right"></i>
+          Pemasukan
+        </ion-item>
+        <ion-item menu-close href="#/app/pengeluaran" ng-controller="pengeluaranCtrl" ng-click="Landscape()">
+        <i class="item-icon icon-left ion-ios-cart padding-right"></i>
+          Pengeluaran
+        </ion-item>        
+        <ion-item menu-close href="#/app/grafik" ng-controller="pie-chartCtrl" ng-click="Portrait()">
+        <i class="item-icon icon-left ion-ios-pie padding-right"></i>
+          Grafik
+        </ion-item>
+        <ion-item menu-close href="#/app/forecast" ng-controller="forecastCtrl" ng-click="Portrait()">
+        <i class="item-icon icon-left ion-ios-pulse-strong padding-right"></i>
+          Forecast
+        </ion-item>
+        <!-- <ion-item menu-close href="#/app/playlists">
+          <i class="item-icon icon-left ion-ios-home padding-right"></i>
+          playlist
+        </ion-item> -->        
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

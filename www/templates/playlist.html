@@ -1,0 +1,28 @@
+<ion-view view-title="Kategories">
+  <ion-content>    
+    <div class="list" ng-controller="MainCtrl" >
+    	<label class="item item-input">
+          <span class="input-label">Nama Kategori</span>
+          <input type="text" ng-model="kategoriData.nama">
+      </label>        	    
+	    <label class="item item-input">
+	     	<span class="input-label">Warna</span>	            
+		    <button class="button col-80" color-picker="" model-mode="name" color-mode="name" ng-model="kategoriData.warna" modal-title="Choose!" color-box="{{kategoriData.warna}}" >
+
+		      {{kategoriData.warna || &apos;Choose a color&apos;}} 
+		    </button>             
+	    </label>        
+	    <label class="item">
+           <button ng-click="doSaveKategori()"  class="button button-block button-positive">Simpan</button>
+        </label>	
+	</div>
+  <div class="list"   ng-controller="PlaylistsCtrl">
+          <input type="text" value="ItemName" ng-model="newItemName" placeholder="diisi">
+          <!-- <input type="number" ng-model="jumlah" placeholder="diisi"> -->
+          <button ng-click="addItem()"  class="button button-positive">Simpan</button>
+          <ion-list ng-repeat="item in items.isi">
+          {{item.title}}
+          </ion-list>
+        </div>
+  </ion-content>
+</ion-view>

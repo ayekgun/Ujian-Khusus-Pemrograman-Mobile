@@ -1,0 +1,84 @@
+<ion-modal-view>
+  <ion-header-bar align-title="centre">
+    <h1 class="title">Pengeluaran</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closePengeluaran()">Close</button>
+    </div>
+    <div class="buttons">
+      <button class="button button-icon-left button-icon icon ion-trash-a" ng-click="doDeletePengeluaran()" ng-show="action == 'change'">
+    </div>
+  </ion-header-bar>
+  <ion-content >
+    <form  ng-show="action == 'add'" ng-submit="doSavePengeluaran()">
+
+      <div class="list card">
+        <label class="item item-input">
+          <span class="input-label">Nama Pengeluaran</span>
+          <input type="text" ng-model="pengeluaranData.nama">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Jumlah Pengeluaran</span>
+          <input type="number" ng-model="pengeluaranData.jumlah">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Tanggal</span>
+          <input type="date" ng-model="pengeluaranData.tanggal" format-date>
+                  
+        </label>
+      </div>
+      <div class="list card">
+        <label class=" item item-radio">         
+          <h3 class="item item-divider ">Kategori</h3>         
+          <ion-radio ng-repeat="item in kategoriList;"
+             ng-value="item.value"
+             ng-model="pengeluaranData.kategori">
+             <button class="button"  style="background-color:{{item.warna}}; color: #000; font-weight: bold; font-size:13px">
+                 {{ item.nama }}                
+            </button>
+                 <label style="padding:20px"> {{ item.text }}</label>
+          </ion-radio>          
+        </label>        
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Simpan</button>
+        </label>
+      </div>
+    </form>
+
+    <form ng-show="action == 'change'" ng-submit="doUpdatePengeluaran()">
+
+      <div class="list card">
+        <label class="item item-input">
+          <span class="input-label">Nama Pengeluaran</span>
+          <input type="text" ng-model="pengeluaranData.nama">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Jumlah Pengeluaran</span>
+          <input type="number" ng-model="pengeluaranData.jumlah">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Tanggal</span>
+          <input type="date" ng-model="pengeluaranData.tanggal" format-date>
+                  
+        </label>
+      </div>
+      <div class="list card">
+
+        <label class=" item item-radio">
+          <h3 class="item item-divider ">Kategori</h3>
+          <ion-radio ng-repeat="item in kategoriList;"
+             ng-value="item.value"
+             ng-model="pengeluaranData.kategori">
+             <button class="button"  style="background-color:{{item.warna}}; color: #000; font-weight: bold; font-size:13px">
+                 {{ item.nama }}                
+            </button>
+                 <label style="padding:20px"> {{ item.text }}</label>
+          </ion-radio>
+        </label>
+        <label class="item">
+           <button ng-click="doUpdatePengeluaran()"  class="button button-block button-positive">Edit</button>
+        </label>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

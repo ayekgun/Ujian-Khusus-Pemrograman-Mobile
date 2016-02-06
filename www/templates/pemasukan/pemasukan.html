@@ -1,0 +1,140 @@
+<ion-modal-view>
+  <head>
+    <style type="text/css">
+    .padding-tops{padding-top: 40px;}
+    </style>
+  </head>
+  <ion-header-bar align-title="centre">
+    <h1 class="title">Pemasukan</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closePemasukan()">Close</button>      
+    </div>
+    <div class="buttons">
+      <button class="button button-icon-left button-icon icon ion-trash-a" ng-click="doDeletePemasukan()" ng-show="action == 'change'">
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-show="action == 'add'" ng-submit="doSavePemasukan()">
+      <div class="list card">              
+        <label class="item item-input" >          
+          <span class="input-label">Jumlah Pemasukan</span>
+          <input type="number" ng-model="pemasukanData.jumlah">
+          <!-- <label  class="toggle">
+            <ion-toggle  ng-model="pemasukanData.toggle"                    
+                    class="padding-tops" ng-true-value="'Tetap'" ng-false-value="'Tidak Tetap'" >          
+            </ion-toggle>
+          </label> -->
+
+          <!-- <h3>Tidak Tetap</h3>
+          <label class="toggle toggle-assertive">
+              <input type="checkbox">
+              <div class="track">
+              <div class="handle"></div>
+           </div>
+          </label>
+          <h3>Tetap</h3> -->
+        </label>
+        
+        <div class="range">
+          <i class="ion-minus-round"></i>          
+          <input type="range" name="volume" ng-model="pemasukanData.tabung">
+          <i class="ion-plus-round"></i>
+        </div>
+        <label class="item item-input">
+          Tabung : {{pemasukanData.tabung}} %          
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Tanggal</span>
+          <input type="date" ng-model="pemasukanData.tanggal" format-date>
+          <div></div>               
+        </label>
+        <!-- <label>{{ pemasukanData.tanggal|date}}</label> -->
+
+        
+    </ion-content>
+
+              
+      </div>
+      <div class="list card">
+
+        <label class=" item item-radio">
+          <h3 class="item item-divider ">Kategori</h3>
+          <ion-radio ng-repeat="item in kategoriList;"
+             ng-value="item.value"
+             ng-model="pemasukanData.kategori">             
+             <button class="button"  style="background-color:{{item.warna}}; color: #000; font-weight: bold; font-size:13px">
+                 {{ item.nama }}                
+            </button>
+                 <label style="padding:20px"> {{ item.text }}</label>
+          </ion-radio>
+        </label>
+        <label class="item">
+           <button type="submit"  class="button button-block button-positive">Simpan</button>
+        </label>
+      </div>
+    </form>
+
+    <!-- ******************************************************************************************************************************************************************************************************************* -->
+    
+    <form ng-submit="doUpdatePemasukan()" ng-show="action == 'change'">   
+      <div class="list card">        
+        <label class="item item-input" >
+          
+          <span class="input-label">Jumlah Pemasukan</span>
+          <input type="number" ng-model="pemasukanData.jumlah">
+          <!-- <label  class="toggle">
+            <ion-toggle  ng-model="pemasukanData.toggle"                    
+                    class="padding-tops" ng-true-value="'Tetap'" ng-false-value="'Tidak Tetap'" >          
+            </ion-toggle>
+          </label> -->
+
+          <!-- <h3>Tidak Tetap</h3>
+          <label class="toggle toggle-assertive">
+              <input type="checkbox">
+              <div class="track">
+              <div class="handle"></div>
+           </div>
+          </label>
+          <h3>Tetap</h3> -->
+        </label>
+        
+        <div class="range">
+          <i class="ion-minus-round"></i>          
+          <input type="range" name="volume" ng-model="pemasukanData.tabung">
+          <i class="ion-plus-round"></i>
+        </div>
+        <label class="item item-input">
+          Tabung : {{pemasukanData.tabung}} %          
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Tanggal</span>
+          <input type="date" ng-model="pemasukanData.tanggal" format-date>
+          <div></div>               
+        </label>
+        <!-- <label>{{ pemasukanData.tanggal|date}}</label> -->
+
+        
+    </ion-content>
+
+               
+      </div>
+      <div class="list card">
+
+        <label class=" item item-radio">
+          <h3 class="item item-divider ">Kategori</h3>
+          <ion-radio ng-repeat="item in kategoriList;"
+             ng-value="item.value"
+             ng-model="pemasukanData.kategori">             
+             <button class="button"  style="background-color:{{item.warna}}; color: #000; font-weight: bold; font-size:13px">
+                 {{ item.nama }}                
+            </button>
+                 <label style="padding:20px"> {{ item.text }}</label>
+          </ion-radio>
+        </label>
+        <label class="item">
+           <button ng-click="doUpdatePemasukan()"  class="button button-block button-positive">Edit</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-screen-orientation",
+  "_cacheHeaders": {
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "main": "index",
+  "_source": "https://github.com/gbenvenuti/cordova-plugin-screen-orientation",
+  "_target": "*",
+  "_originalSource": "https://github.com/gbenvenuti/cordova-plugin-screen-orientation",
+  "_direct": true
+}

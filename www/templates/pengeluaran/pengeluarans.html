@@ -1,0 +1,48 @@
+<ion-view view-title="Daftar Pengeluaran">
+    <ion-nav-buttons side="right" >         
+          <button class="button button-icon icon ion-plus-round" ng-click="pengeluaran()">        
+          </button>
+    </ion-nav-buttons>
+  <ion-content>
+    <ion-list show-delete="data.showDelete" can-swipe="on-swipe-rigth" >
+        <div class="row">
+            <div class="col col-20">
+                       
+            </div>
+            <div class="col col-20">                
+                <b>Kategori</b>
+            </div>            
+            <div class="col col-20">                
+                 <b>Keterangan</b>
+            </div>            
+            <div class="col col-20">                
+                <b>Jumlah Pengeluaran</b>
+            </div>            
+            <div class="col col-20">                
+                <b>Tanggal</b>                             
+            </div>                                    
+       </div>
+      <ion-item ng-repeat="pengeluaran in pengeluarans" ng-click="getPengeluaran(pengeluaran.id)">
+        <div class="row">
+            <div class="col col-20">
+            <button class="button"  style="background-color: {{pengeluaran.warna}} ; color: #fff; font-size: bold;">
+                {{pengeluaran.nama}}                
+            </button>           
+            </div>
+            <div class="col col-20">                
+                 {{pengeluaran.namaKategori}}
+            </div>            
+            <div class="col col-20">                
+                 {{pengeluaran.keterangan}}
+            </div>            
+            <div class="col col-20">                
+                {{pengeluaran.jumlah}}
+            </div>            
+            <div class="col col-20">                
+                    {{pengeluaran.tanggal|dates}}                             
+            </div>                                    
+       </div>   
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

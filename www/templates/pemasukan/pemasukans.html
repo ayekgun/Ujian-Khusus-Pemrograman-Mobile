@@ -1,0 +1,50 @@
+  <ion-view view-title="Daftar Pemasukan">
+    <ion-nav-buttons side="right" >         
+          <button class="button button-icon icon ion-plus-round" ng-click="pemasukan()">        
+          </button>
+    </ion-nav-buttons>    
+  <ion-content>    
+    <ion-list show-delete="data.showDelete" can-swipe="on-swipe-rigth" >
+        <div class="row">
+            <div class="col col-20">            
+                        
+            </div>
+            <div class="col col-20">                
+                <b>Kategori</b>
+            </div>            
+            <div class="col col-20">                
+                <b>Jumlah</b>
+            </div>            
+           
+            <div class="col col-20" >                
+                <b>Tabungan</b>
+            </div>
+            <div class="col col-20">                
+                <b>Tanggal</b>
+            </div>       
+       </div>
+      <ion-item ng-repeat="pemasukan in pemasukans" ng-click="getPemasukan(pemasukan.id)">
+        <div class="row">
+            <div class="col col-20">            
+            <button class="button"  style="background-color: {{pemasukan.warna}} ; color: #fff; font-size: bold;">
+                {{pemasukan.nama}}                
+            </button>            
+            </div>
+            <div class="col col-20">                
+                 {{pemasukan.namaKategori}}
+            </div>            
+            <div class="col col-20">                
+                 {{pemasukan.jumlah}}
+            </div>
+            
+            <div class="col col-20" >                
+                {{pemasukan.tabung}}
+            </div>
+            <div class="col col-20">                
+                {{pemasukan.tanggal|dates}}                             
+            </div>       
+       </div>             
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

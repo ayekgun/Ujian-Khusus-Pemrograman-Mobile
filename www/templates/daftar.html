@@ -1,0 +1,23 @@
+<ion-view view-title="Daftar">
+  <ion-header-bar align-title="centre">
+    <h1 class="title">Daftar</h1>
+    <div class="buttons" ng-controller="LoginCtrl">
+      <button class="button button-positive" ng-click="openlogin()"><b>Login</b></button>      
+    </div>
+  </ion-header-bar>  
+  <ion-content>    
+      <div class="card">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="data.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="data.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="register()">Daftar</button>
+        </label>       
+      </div>
+  </ion-content>
+</ion-view>

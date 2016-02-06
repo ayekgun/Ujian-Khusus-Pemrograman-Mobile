@@ -1,0 +1,22 @@
+<ion-view view-title="Daftar Pengeluaran">
+  <ion-content>
+    <ion-list>
+      <ion-item >      
+        <!-- {{playlist.title}} {{playlist.jumlah}}  -->
+        <div>
+	        <div class="list">
+            <label class=" item item-radio">
+              <h3 class="item item-divider ">Kategori Pemasukan</h3>
+              <ion-radio ng-repeat="item in kategoriList;"
+                 ng-value="item.value"
+                 ng-model="pemasukanData.kategori">
+                {{ item.text }}
+              </ion-radio>
+            </label>        
+        </div>        
+        </div>        
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
