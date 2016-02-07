@@ -1,6 +1,10 @@
 angular.module('pie-chart.controllers', ['chart.js','ionic','ionic-color-picker'])
 .controller('pie-chartCtrl',function($scope,$ionicModal, $ionicPopup,$cordovaSQLite,$state,$stateParams,$filter){
-      
+      $scope.refresh = function(){
+        $scope.doRefresh();
+        $scope.$broadcast('scroll.refreshComplete');
+      };
+
       $scope.Portrait = function() {
         screen.unlockOrientation('portrait');
       }
@@ -9,7 +13,7 @@ angular.module('pie-chart.controllers', ['chart.js','ionic','ionic-color-picker'
       $scope.showChartAvaliable = function() {
             $scope.chartTabShow = $scope.chartTabShow == false ? true : false;
       };
-
+      $scope.doRefresh = function (){
       var pemasukanLabels = [];
       var pemasukanNilai = [];
       var pemasukantotal = 0;      
@@ -78,6 +82,8 @@ angular.module('pie-chart.controllers', ['chart.js','ionic','ionic-color-picker'
         var labelClick = points[0]['label'];                  
         $state.go('app.detil-grafik-pengeluaran',{'blnP' : labelClick });
       };
+    };
+    $scope.doRefresh();
 
       
 

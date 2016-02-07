@@ -1,11 +1,12 @@
 <ion-view view-title="Grafik Pemasukan dan Pengeluaran Per-Bulan">
-  <ion-content >    
+  <ion-content >
+    <ion-refresher pulling-text="Pull to refresh." on-refresh="refresh()"> </ion-refresher>    
     <div class="card">
         <div class="item item-divider">
             Pemasukan Chart
         </div>
         <div class="item item-text-wrap" >
-            <canvas id="pie" class="chart chart-pie" chart-data="datas" chart-labels="labels"  chart-click="onClick" >
+            <canvas id="pie" class="chart chart-pie" chart-data="datas" chart-labels="labels"  chart-click="onClick" ng-if="chartTabShow">
             </canvas> 
         </div>        
     </div> 
@@ -14,7 +15,7 @@
             Pengeluaran Chart
         </div>
         <div class="item item-text-wrap">
-            <canvas id="pie" class="chart chart-pie" chart-data="datasP" chart-labels="labelsP"  chart-click="onClicks" >
+            <canvas id="pie" class="chart chart-pie" chart-data="datasP" chart-labels="labelsP"  chart-click="onClicks" ng-if="chartTabShow">
             </canvas> 
         </div>        
     </div>

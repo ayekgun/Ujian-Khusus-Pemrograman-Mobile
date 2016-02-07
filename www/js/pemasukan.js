@@ -1,7 +1,7 @@
 angular.module('pemasukan.controllers', ['chart.js','ionic','ionic-color-picker'])  
 
 .controller('pemasukanCtrl',function($scope,$http, $ionicModal, $timeout , $ionicPopup, $cordovaSQLite, $stateParams, $filter, $ionicPlatform){
- 
+    $scope.kategoriList = {} ;
   $scope.Landscape = function() {
       screen.unlockOrientation('landscape');
       console.log(screen.lockOrientation('landscape'));
@@ -21,19 +21,21 @@ angular.module('pemasukan.controllers', ['chart.js','ionic','ionic-color-picker'
 
   $scope.showAddChangeDialog = function(action) {
         $scope.action = action;
+        $scope.kategoriList = {};
+        $scope.getKategoriList();
         $scope.pemasukanModal.show();
       };  
 
   // Open the login modal
   $scope.pemasukan = function(action) {    
-    $scope.showAddChangeDialog('add');
+    $scope.showAddChangeDialog('add');    
     //$scope.pemasukanModal.show();
   };
 
   // Triggered in the login modal to close it
   $scope.closePemasukan = function() {
-    $scope.pemasukanModal.hide();   
-  };
+    $scope.pemasukanModal.hide();       
+  };  
 
   $scope.getPemasukan = function(id) {
         var dataDetil= [];

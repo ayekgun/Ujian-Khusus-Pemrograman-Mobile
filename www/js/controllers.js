@@ -129,8 +129,9 @@ $ionicModal.fromTemplateUrl('templates/tambah.html', {
   });
 
   $scope.refresh = function(){
+    $scope.doRefresh();
     // window.location = "#/app/home";
-    $window.location.reload(true);
+    // $window.location.reload(true);
     // $state.go($state.current, {}, {reload: true});
     $scope.$broadcast('scroll.refreshComplete');
   };
@@ -146,7 +147,7 @@ $ionicModal.fromTemplateUrl('templates/tambah.html', {
   };
   
        
-  // $scope.doRefresh = function (){
+  $scope.doRefresh = function (){
 
        // $scope.chartTabShow = false;
        
@@ -191,16 +192,15 @@ $ionicModal.fromTemplateUrl('templates/tambah.html', {
            }
        }, function (err) {
            console.error(err);
-       });
-       $scope.$broadcast('scroll.refreshComplete');        
+       });               
 
        $scope.labels = bulan;
        $scope.series = ['Pemasukan','Pengeluaran'];
        $scope.colour = ['#00FF00','#FF0000'];
        $scope.datass = [sumtotal,sumtotalP];
 
-  // };
-  // $scope.doRefresh();
+  };
+  $scope.doRefresh();
 })
  
 .controller('MainCtrl', function($scope,$http, $ionicModal, $timeout , $ionicPopup, $cordovaSQLite, $stateParams){
@@ -268,11 +268,16 @@ $ionicModal.fromTemplateUrl('templates/tambah.html', {
     $scope.Portrait = function() {
       screen.unlockOrientation('portrait');
     }
+    $scope.refresh = function(){
+      $scope.doRefresh();
+      $scope.$broadcast('scroll.refreshComplete');
+    };
 
     $scope.chartTabShow = false;
       $scope.showChartAvaliable = function() {
             $scope.chartTabShow = $scope.chartTabShow == false ? true : false;
     };
+    $scope.doRefresh = function (){
 
     var bulan = [];
     var pengeluaranY = [];
@@ -388,6 +393,8 @@ $ionicModal.fromTemplateUrl('templates/tambah.html', {
      }
     }, function (err) {
         console.error(err);
-    }); 
+    });
+   };
+   $scope.doRefresh();  
 
 });

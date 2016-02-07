@@ -97,6 +97,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
+  .state('app.pemasukans', {
+      url: '/pemasukans',
+      cache : false,
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/pemasukan/pemasukan.html',
+          controller: 'pemasukanCtrl'          
+        }
+      }
+    })
+
   .state('app.pengeluaran', {
       url: '/pengeluaran',
       views: {

@@ -1,6 +1,6 @@
 angular.module('pengeluaran.controllers', ['chart.js','ionic','ionic-color-picker'])
 .controller('pengeluaranCtrl',function($scope,$http, $ionicModal, $timeout , $ionicPopup, $cordovaSQLite, $stateParams,$filter, $ionicPlatform){
-  
+  $scope.kategoriList = {};
   $scope.Landscape = function() {
       screen.unlockOrientation('landscape');
       console.log(screen.lockOrientation('landscape'));
@@ -24,6 +24,8 @@ angular.module('pengeluaran.controllers', ['chart.js','ionic','ionic-color-picke
 
   $scope.showAddChangeDialog = function(action) {
         $scope.action = action;
+        $scope.kategoriList = {};
+        $scope.getKategoriList();
         $scope.pengeluaranModal.show();
       };
   
