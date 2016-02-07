@@ -108,8 +108,8 @@ angular.module('detil-grafik.controllers', ['chart.js','ionic','ionic-color-pick
                                         console.log($scope.totalpeng);
                                         $scope.totalpem = totals;
                                         $scope.totaltb = tbg;
-                                        console.log($scope.totalpem);
-                                        console.log($scope.totaltb);
+                                        // console.log($scope.totalpem);
+                                        // console.log($scope.totaltb);
                                         var makspeng = parseInt($scope.totalpem) * 80;
                                         var makspeng2 = makspeng / 100;                                        
                                         var tbg_peng = parseInt($scope.totalpeng) + parseInt($scope.totaltb);

@@ -21,7 +21,8 @@ angular.module('pie-chart.controllers', ['chart.js','ionic','ionic-color-picker'
                  for(i=0;i<res.rows.length;i++){                    
                   var b = $filter('date')(new Date(res.rows.item(i).tanggal), "MMMM");                
                      pemasukanLabels[i] = b;
-                     pemasukantotal += res.rows.item(i).total;                                 
+                     pemasukantotal += res.rows.item(i).total;
+                     console.log(pemasukantotal);                                 
                      pemasukanarr[b] = pemasukantotal;
                      pemasukanNilai[i] = res.rows.item(i).total;                   
                  }                                                                   
@@ -41,18 +42,18 @@ angular.module('pie-chart.controllers', ['chart.js','ionic','ionic-color-picker'
       var pengeluarantotal = 0;      
       var pengeluaranarr=[];
 
-      var queryx = "SELECT pengeluaran.*,sum(pengeluaran.jumlah) totalP,substr(tanggal, 1, 7) grouBlnP FROM pengeluaran join kategori on pengeluaran.kategori=kategori.id group by grouBlnP";
-      var data =  $cordovaSQLite.execute(db, queryx).then(function(res) {
+      var query2 = "SELECT pengeluaran.*,sum(pengeluaran.jumlah) totalP,substr(pengeluaran.tanggal, 1, 7) grouBlnP FROM pengeluaran join kategoripengeluaran on pengeluaran.kategori=kategoripengeluaran.id group by grouBlnP";
+      var data =  $cordovaSQLite.execute(db, query2).then(function(res) {
              if(res.rows.length > 0) {            
                  for(i=0;i<res.rows.length;i++){                    
-                  var b = $filter('date')(new Date(res.rows.item(i).tanggal), "MMMM");                
-                     pengeluaranLabels[i] = b;
+                  var c = $filter('date')(new Date(res.rows.item(i).tanggal), "MMMM");                
+                     pengeluaranLabels[i] = c;
                      pengeluarantotal += res.rows.item(i).totalP;                                 
-                     pengeluaranarr[b] = pengeluarantotal;
+                     pengeluaranarr[c] = pengeluarantotal;
                      pengeluaranNilai[i] = res.rows.item(i).totalP;                   
                  }                                                                   
                  // $scope.totalBulanArr = arr;
-                 // console.log(arr); 
+                 console.log(pengeluaranNilai); 
              } else {
 
                  console.log("No results found");
@@ -65,9 +66,10 @@ angular.module('pie-chart.controllers', ['chart.js','ionic','ionic-color-picker'
         $scope.labels = pemasukanLabels;
         $scope.datas = pemasukanNilai;  
         $scope.labelsP = pengeluaranLabels;
-        $scope.datasP = pengeluaranNilai;  
+        $scope.datasP = pengeluaranNilai;
+        console.log($scope.datasP);  
         
-        $scope.onClick = function (points, evt) {  
+      $scope.onClick = function (points, evt) {  
         var labelClick = points[0]['label'];                  
         $state.go('app.detil-grafik',{'bln' : labelClick });
       };

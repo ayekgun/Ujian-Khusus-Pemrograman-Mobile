@@ -129,8 +129,8 @@ $ionicModal.fromTemplateUrl('templates/tambah.html', {
   });
 
   $scope.refresh = function(){
-    window.location = "#/app/home";
-    // $window.location.reload(true);
+    // window.location = "#/app/home";
+    $window.location.reload(true);
     // $state.go($state.current, {}, {reload: true});
     $scope.$broadcast('scroll.refreshComplete');
   };
